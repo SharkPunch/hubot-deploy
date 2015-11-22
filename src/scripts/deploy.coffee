@@ -88,7 +88,8 @@ module.exports = (robot) ->
     if user?.githubDeployToken?
       deployment.setUserToken(user.githubDeployToken)
 
-    deployment.user   = user.id
+    #deployment.user   = user.id # Temporary fix until this is resolved https://github.com/atmos/hubot-deploy/issues/59
+    deployment.user   = user.name
     deployment.room   = msg.message.user.room
 
     if robot.adapterName is "flowdock"
